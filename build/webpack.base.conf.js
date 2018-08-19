@@ -76,8 +76,11 @@ module.exports = {
       },
       {
         test: /\.less$/,
-        loader: "style-loader!css-loader!less-loader",
-        options: { javascriptEnabled: true }
+        use: [
+          'vue-style-loader',
+          'css-loader',
+          'less-loader'
+        ]
       },
     ]
   },

@@ -19,8 +19,8 @@
 
 <script>
 export default {
-  name: "MiniProgress",
-  props: ["percent", "strokeWidth", "target", "color"],
+  name: 'MiniProgress',
+  props: ['percent', 'strokeWidth', 'target', 'color'],
   data() {
     return {};
   },

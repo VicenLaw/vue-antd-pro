@@ -19,7 +19,7 @@
 
 <script>
 export default {
-  name: "NumerInfo",
+  name: 'NumerInfo',
   props: {
     title: {},
     subTitle: {},

@@ -16,7 +16,7 @@
 <script>
 const scale = {
   x: {
-    type: "cat",
+    type: 'cat',
   },
   y: {
     min: 0,
@@ -26,7 +26,7 @@ const scale = {
 const padding = [36, 5, 30, 5];
 
 const tooltip = [
-  "x*y",
+  'x*y',
   (x, y) => ({
     name: x,
     value: y,
@@ -34,8 +34,8 @@ const tooltip = [
 ];
 
 export default {
-  name: "MiniBar",
-  props: ["height", "data", "color"],
+  name: 'MiniBar',
+  props: ['height', 'data', 'color'],
   data() {
     return {
       scale,

@@ -9,6 +9,6 @@
 
 <script>
 export default {
-  name: "AppMain",
+  name: 'AppMain',
 };
 </script>

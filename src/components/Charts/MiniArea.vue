@@ -22,7 +22,7 @@ const padding = [36, 5, 30, 5];
 
 const scaleProps = {
   x: {
-    type: "cat",
+    type: 'cat',
     range: [0, 1],
     ...scale.x,
   },
@@ -33,22 +33,22 @@ const scaleProps = {
 };
 
 const tooltip = [
-  "x*y",
+  'x*y',
   (x, y) => ({
     name: x,
     value: y,
   }),
 ];
 export default {
-  name: "MiniArea",
+  name: 'MiniArea',
   props: {
     height: {},
     data: {},
     color: {
-      default: "rgba(24, 144, 255, 0.2)",
+      default: 'rgba(24, 144, 255, 0.2)',
     },
     borderColor: {
-      default: "#1089ff",
+      default: '#1089ff',
     },
     line: {
       default: false,

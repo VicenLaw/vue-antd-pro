@@ -4,8 +4,8 @@
   </a-locale-provider>
 </template>
 <script>
-import zhCN from "ant-design-vue/lib/locale-provider/zh_CN";
-import "moment/locale/zh-cn";
+import zhCN from 'ant-design-vue/lib/locale-provider/zh_CN';
+import 'moment/locale/zh-cn';
 export default {
   data() {
     return {
@@ -14,6 +14,6 @@ export default {
   },
 };
 </script>
-<style lang="less" scoped>
-@import './styles/index.less';
+<style lang="less">
+@import "./styles/index.less";
 </style>

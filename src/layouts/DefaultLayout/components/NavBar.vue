@@ -34,20 +34,20 @@
 
 <script>
 export default {
-  name: "NavBar",
-  props: ["collapsed"],
+  name: 'NavBar',
+  props: ['collapsed'],
   methods: {
     logout() {
-      console.log("Logout");
+      console.log('Logout');
     },
     toggleCollapsed() {
-      this.$emit("toggle");
+      this.$emit('toggle');
     },
   },
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .header {
   padding: 0 12px 0 0;
   background: #fff;

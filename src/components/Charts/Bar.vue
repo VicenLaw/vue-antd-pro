@@ -15,7 +15,7 @@
 <script>
 const scale = {
   x: {
-    type: "cat",
+    type: 'cat',
   },
   y: {
     min: 0,
@@ -23,7 +23,7 @@ const scale = {
 };
 
 const tooltip = [
-  "x*y",
+  'x*y',
   (x, y) => ({
     name: x,
     value: y,
@@ -31,14 +31,14 @@ const tooltip = [
 ];
 
 export default {
-  name: "Bar",
-  props: ["height", "data", "title"],
+  name: 'Bar',
+  props: ['height', 'data', 'title'],
   data() {
     return {
       scale,
       tooltip,
-      color: "rgba(24, 144, 255, 0.85)",
-      padding: "auto",
+      color: 'rgba(24, 144, 255, 0.85)',
+      padding: 'auto',
     };
   },
 };

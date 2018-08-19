@@ -23,10 +23,10 @@
 </template>
 
 <script>
-import { NavBar, SideBar, AppMain } from "./components";
+import { NavBar, SideBar, AppMain } from './components';
 
 export default {
-  name: "layout",
+  name: 'layout',
   data() {
     return {
       collapsed: false,
@@ -45,7 +45,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .app-wrapper {
   position: relative;
   height: 100%;

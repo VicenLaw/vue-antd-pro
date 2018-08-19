@@ -168,14 +168,19 @@
                   style: { marginBottom: '0px' },
                   pageSize: 5,
                 }">
-            <template slot="name" slot-scope="name">
-              {{name.first}} {{name.last}}
+            <a href="/" slot="keyword" slot-scope="text">{{text}}</a>
+            <template slot="range" slot-scope="text,record">
+              <trend :flag="record.status == 1 ? 'down' : 'up'">
+                <span class="trendText" :style="{ marginRight: '4px' }">
+                  {{text}}%
+                </span>
+              </trend>
             </template>
           </a-table>
         </a-card>
       </a-col>
       <a-col :xl="12" :lg="24" :md="24" :sm="24" :xs="24">
-        <a-card :loading="loading" :bordered="false" title="销售额类别占比" :style="{marginTop: '24px',minHeight: '509px'}">
+        <a-card :loading="loading" :bordered="false" title="销售额类别占比" class="salesCard" :style="{marginTop: '24px',minHeight: '509px'}">
           <div class="salesCardExtra" slot="extra">
             <span class="iconGroup">
               <a-icon type="ellipsis" />
@@ -189,8 +194,8 @@
             </div>
           </div>
           <h4 :style="{ marginTop: '8px', marginBottom: '32px' }">销售额</h4>
-          // TODO: Pie组件还没开始写
-          <pie :hasLegend="true" :subTitle="销售额" :total="''" :data="salesPieData" :valueFormat="value" :height="248" :lineWidth="4"></pie>
+          <!-- TODO: Pie组件还没开始写 -->
+          <!-- <pie :hasLegend="true" :subTitle="销售额" :total="''" :data="salesPieData" :valueFormat="value" :height="248" :lineWidth="4"></pie> -->
         </a-card>
       </a-col>
     </a-row>
@@ -204,12 +209,12 @@ import {
   MiniProgress,
   Bar,
   Pie,
-} from "../../components/Charts";
-import { Trend } from "../../components/Trend";
-import { NumberInfo } from "../../components/NumberInfo";
-import { getTimeDistance } from "../../utils/utils";
-import numeral from "numeral";
-import { mapState } from "vuex";
+} from '../../components/Charts';
+import { Trend } from '../../components/Trend';
+import { NumberInfo } from '../../components/NumberInfo';
+import { getTimeDistance } from '../../utils/utils';
+import numeral from 'numeral';
+import { mapState } from 'vuex';
 const topColResponsiveProps = {
   xs: 24,
   sm: 12,
@@ -228,37 +233,35 @@ for (let i = 0; i < 7; i += 1) {
 
 const columns = [
   {
-    title: "排名",
-    dataIndex: "index",
-    key: "index",
+    title: '排名',
+    dataIndex: 'index',
+    key: 'index',
   },
   {
-    title: "搜索关键词",
-    dataIndex: "keyword",
-    key: "keyword",
-    scopedSlots: {
-      customRender: text => {
-        return <a href="/">{text}</a>;
-      },
-    },
+    title: '搜索关键词',
+    dataIndex: 'keyword',
+    key: 'keyword',
+    scopedSlots: { customRender: 'keyword' },
   },
   {
-    title: "用户数",
-    dataIndex: "count",
-    key: "count",
+    title: '用户数',
+    dataIndex: 'count',
+    key: 'count',
     sorter: (a, b) => a.count - b.count,
-    className: "alignRight",
+    className: 'alignRight',
   },
   {
-    title: "周涨幅",
-    dataIndex: "range",
-    key: "range",
+    title: '周涨幅',
+    dataIndex: 'range',
+    key: 'range',
     sorter: (a, b) => a.range - b.range,
-    customRender: text => {
-      return `${text}%`;
+    scopedSlots: {
+      customRender: 'range',
     },
-    scopedSlots: { customRender: "range" },
-    align: "right",
+    // customRender: (text, record) => {
+    //   return `<a>${record.status}</a>`;
+    // },
+    align: 'right',
   },
 ];
 
@@ -268,35 +271,35 @@ export default {
       topColResponsiveProps,
       columns,
       rankingListData,
-      currentTabKey: "",
-      rangePickerValue: getTimeDistance("year"),
-      salesType: "all",
+      currentTabKey: '',
+      rangePickerValue: getTimeDistance('year'),
+      salesType: 'all',
       salesPieData:
-        this.salesType === "all"
+        this.salesType === 'all'
           ? this.salesTypeData
-          : this.salesType === "online"
+          : this.salesType === 'online'
             ? this.salesTypeDataOnline
             : this.salesTypeDataOffline,
     };
   },
-  computed: mapState("chart", {
-    loading: "loading",
-    visitData: "visitData",
-    visitData2: "visitData2",
-    salesData: "salesData",
-    searchData: "searchData",
-    offlineData: "offlineData",
-    offlineChartData: "offlineChartData",
-    salesTypeData: "salesTypeData",
-    salesTypeDataOnline: "salesTypeDataOnline",
-    salesTypeDataOffline: "salesTypeDataOffline",
+  computed: mapState('chart', {
+    loading: 'loading',
+    visitData: 'visitData',
+    visitData2: 'visitData2',
+    salesData: 'salesData',
+    searchData: 'searchData',
+    offlineData: 'offlineData',
+    offlineChartData: 'offlineChartData',
+    salesTypeData: 'salesTypeData',
+    salesTypeDataOnline: 'salesTypeDataOnline',
+    salesTypeDataOffline: 'salesTypeDataOffline',
   }),
   created() {
-    this.$store.dispatch("chart/fetch");
+    this.$store.dispatch('chart/fetch');
   },
   filters: {
     formatNum: function(value) {
-      return numeral(value).format("0,0");
+      return numeral(value).format('0,0');
     },
   },
   methods: {
@@ -306,15 +309,15 @@ export default {
         return;
       }
       if (
-        this.rangePickerValue[0].isSame(value[0], "day") &&
-        this.rangePickerValue[1].isSame(value[1], "day")
+        this.rangePickerValue[0].isSame(value[0], 'day') &&
+        this.rangePickerValue[1].isSame(value[1], 'day')
       ) {
-        return "currentDate";
+        return 'currentDate';
       }
     },
     selectDate(type) {
       this.rangePickerValue = getTimeDistance(type);
-      this.$store.dispatch("chart/fetchSalesData");
+      this.$store.dispatch('chart/fetchSalesData');
     },
     handleChangeSalesType(e) {
       this.salesType = e.target.value;
@@ -333,6 +336,6 @@ export default {
 };
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 @import "./Analysis.less";
 </style>

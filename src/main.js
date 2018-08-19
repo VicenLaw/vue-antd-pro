@@ -5,10 +5,10 @@ import App from './App';
 import router from './router';
 import Vuex from 'vuex';
 import Antd from 'ant-design-vue';
-import 'ant-design-vue/dist/antd.css';
 import ViserVue from 'viser-vue';
 import store from './store';
 import '../mock/mock.js';
+import 'ant-design-vue/dist/antd.css';
 
 Vue.use(Vuex);
 Vue.use(Antd);

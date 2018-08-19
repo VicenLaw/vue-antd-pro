@@ -14,11 +14,11 @@
   </div>
 </template>
 <script>
-import config from "./typeConfig";
+import config from './typeConfig';
 
 export default {
-  name: "Exception",
-  props: ["type", "img", "title", "desc"],
+  name: 'Exception',
+  props: ['type', 'img', 'title', 'desc'],
   data() {
     return {
       config,
@@ -26,7 +26,7 @@ export default {
   },
 };
 </script>
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .exception {
   display: flex;
   align-items: center;

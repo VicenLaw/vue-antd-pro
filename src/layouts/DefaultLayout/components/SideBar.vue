@@ -39,16 +39,16 @@
 </template>
 
 <script>
-import { asideMenuConfig } from "../../../menuConfig";
+import { asideMenuConfig } from '../../../menuConfig';
 const rootSubmenuKeys = [];
 for (let item of asideMenuConfig) {
   rootSubmenuKeys.push(item.path);
 }
-const openKeys = ["/dashboard"];
+const openKeys = ['/dashboard'];
 
 export default {
-  name: "SideBar",
-  props: ["collapsed"],
+  name: 'SideBar',
+  props: ['collapsed'],
   data() {
     return {
       asideMenuConfig,
@@ -71,7 +71,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .sider {
   min-height: 100vh;
   position: relative;

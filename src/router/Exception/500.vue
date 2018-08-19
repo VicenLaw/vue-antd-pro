@@ -3,10 +3,10 @@
 </template>
 
 <script>
-import { Exception } from "../../components/Exception";
+import { Exception } from '../../components/Exception';
 
 export default {
-  name: "page500",
+  name: 'page500',
   components: {
     Exception,
   },

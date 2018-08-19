@@ -34,15 +34,15 @@
 
 <script>
 export default {
-  name: "ChartCard",
+  name: 'ChartCard',
   props: [
-    "bordered",
-    "title",
-    "loading",
-    "tips",
-    "total",
-    "footer",
-    "contentHeight",
+    'bordered',
+    'title',
+    'loading',
+    'tips',
+    'total',
+    'footer',
+    'contentHeight',
   ],
   data() {
     return {};
@@ -50,7 +50,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .chartCard {
   position: relative;
   .chartTop {

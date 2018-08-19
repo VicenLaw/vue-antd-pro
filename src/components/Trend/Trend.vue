@@ -9,8 +9,8 @@
 
 <script>
 export default {
-  name: "Trend",
-  props: ["flag"],
+  name: 'Trend',
+  props: ['flag'],
 };
 </script>
 
