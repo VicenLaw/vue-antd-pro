@@ -7,6 +7,10 @@ import {
   Page403, Page404, Page500,
 } from './Exception';
 
+import {
+  ResultError, ResultSuccess,
+} from './Result';
+
 const routerConfig = [{
   path: '/',
   layout: DefaultLayout,
@@ -40,6 +44,18 @@ const routerConfig = [{
     path: '/exception/500',
     layout: DefaultLayout,
     component: Page500,
+  },
+  {
+    path: '/result/success',
+    name: 'Success',
+    layout: DefaultLayout,
+    component: ResultSuccess,
+  },
+  {
+    path: '/result/fail',
+    name: 'Fail',
+    layout: DefaultLayout,
+    component: ResultError,
   },
   ],
 },
